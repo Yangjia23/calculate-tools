@@ -1,6 +1,18 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './app.scss'
+import Taro from '@tarojs/taro';
+
+const plugin = Taro.requirePlugin("wxacommentplugin");
+plugin.openComment({
+  success: (res) => {
+    console.log('plugin.openComment success', res)
+  },
+  fail: (res) => {
+    console.log('plugin.openComment fail', res)
+  }
+})
+
 
 const App = createApp({
   onShow(options) { },
